@@ -1,0 +1,7 @@
+<aura:component controller="RadarChartData" implements="force:appHostable,flexipage:availableForAllPageTypes" >
+<ltng:require scripts="/resource/Chart"/>
+<div onclick="{!c.getChart}">
+<canvas aura:id="chart" height="450" width="600"></canvas>
+    </div>
+
+</aura:component>

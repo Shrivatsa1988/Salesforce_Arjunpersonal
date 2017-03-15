@@ -1,0 +1,57 @@
+<apex:page controller="SharingController">
+
+  <!-- Begin Default Content REMOVE THIS -->
+ <apex:form >
+      <apex:pageBlock mode="edit" id="block">
+         <apex:pageBlockSection >
+            <apex:pageBlockSectionItem >
+               <apex:outputLabel for="searchText">Search Text</apex:outputLabel>
+               <apex:panelGroup >
+                  <apex:inputText id="searchText" value="{!searchText}"/>
+                  <apex:commandButton value="Go!" action="{!doSearch}" 
+                                      rerender="block" status="status"/>
+               </apex:panelGroup>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        <apex:actionStatus id="status" startText="requesting..."/>
+        <apex:pageBlockSection title="Results" id="results" columns="1">
+         <apex:outputLabel >Matching Opportunities</apex:outputLabel>
+           <apex:pageBlockTable value="{!OppList }" var="l" 
+                               rendered="{!NOT(ISNULL(OppList ))}">
+              <apex:column value="{!l.name}"/>
+              <apex:column value="{!l.Type}"/>
+              <apex:column value="{!l.CloseDate}"/>
+             
+           </apex:pageBlockTable>
+           
+            <apex:outputLabel >Matching Contacts</apex:outputLabel>
+           <apex:pageBlockTable value="{!contList }" var="l" 
+                               rendered="{!NOT(ISNULL(contList ))}">
+              <apex:column value="{!l.FirstName}"/>
+              <apex:column value="{!l.LastName }"/>
+           </apex:pageBlockTable>
+           
+            <apex:outputLabel >Matching Accounts</apex:outputLabel>
+           <apex:pageBlockTable value="{!AccList }" var="l" 
+                               rendered="{!NOT(ISNULL(AccList ))}">
+              <apex:column value="{!l.Name}"/>
+              <apex:column value="{!l.AccountNumber}"/>
+              <apex:column value="{!l.Phone}"/>
+           </apex:pageBlockTable>
+           
+           <apex:outputLabel >Matching custom object(Contacts2)</apex:outputLabel>
+           <apex:pageBlockTable value="{!Contact2List }" var="l" 
+                               rendered="{!NOT(ISNULL(Contact2List ))}">
+                               <apex:column headerValue="Name" >
+                                        <apex:commandLink value="{!l.name}" action="{!NaviagateToRecord}" target="_blank">
+                                            <apex:param assignTo="{!SelectedRecord}" name="{!l.Id}" value="{!l.Id}"/>
+                                        </apex:commandLink>
+                                    </apex:column>
+              <apex:column value="{!l.Name}"/>
+              <apex:column value="{!l.EF_User_ID__c}"/>
+              <apex:column value="{!l.Email__c}"/>
+           </apex:pageBlockTable>
+        </apex:pageBlockSection>
+      </apex:pageBlock>
+   </apex:form>
+</apex:page>

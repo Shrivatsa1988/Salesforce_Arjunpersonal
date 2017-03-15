@@ -1,0 +1,5 @@
+<aura:component >
+    <ltng:require scripts="/resource/highstock_4_2_3/js/highstock-all.js, /resource/highmaps_4_2_3/js/modules/map.js"
+    	afterScriptsLoaded="{!c.afterScriptsLoaded}"/>
+    <div aura:id="chart" style="width:100%; height:400px;"/>
+</aura:component>

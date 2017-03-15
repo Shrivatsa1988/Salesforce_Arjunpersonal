@@ -1,0 +1,21 @@
+<aura:component >
+    <aura:registerEvent name="cmpEvent" type="c:ceEvent"/>
+    <h1> Simple Component Event Sample</h1>
+    <p>
+       	{$Browser.isTablet}
+        {$Locale.language}
+        {$Locale.timezone}
+        <ui:button label="Click" press="{!c.firecomponent}"/>
+    </p>
+    <p> 
+        isTablet: {!$Browser.isTablet}
+  isPhone:{!$Browser.isPhone}
+  {!$Browser.isAndroid}
+  {!$Browser.formFactor}
+  {!$Locale.language}
+  {!$Locale.timezone}
+  {!$Locale.numberFormat}
+  {!$Locale.currencyFormat}
+    </p>
+    
+</aura:component>

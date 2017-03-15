@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contact2</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ContactSharing</value>
+    </caseValues>
+    <fields>
+        <label><!-- EF User ID --></label>
+        <name>EF_User_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
